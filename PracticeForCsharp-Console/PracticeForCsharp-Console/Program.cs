@@ -10,6 +10,7 @@ namespace PracticeForCsharp_Console
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Hello,World!");
         }
     }
 }
