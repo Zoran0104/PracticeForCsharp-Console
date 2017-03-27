@@ -10,41 +10,57 @@ namespace PracticeForCsharp_Console
     {
         static void Main(string[] args)
         {
-            People people = new People();
-            people.Name = "张三";
-            people.Weight = 60;
-            people.Introduce();
+            Rectangle rectangle = new Rectangle(30);
+            int line = rectangle.SquArea();
+            Console.WriteLine("面积为30的矩形最近分解为{0}和{1}",line,30/line);
+            
         }
     }
-    class People
+
+    class Rectangle
     {
-        private string name;
-        private int weight;
-        public string Name
+        public int length;
+        public int width;
+        private int area;
+        public Rectangle()
         {
-            set
-            {
-                name = value;
-            }
-            get
-            {
-                return name;
-            }
+            length = 0;
+            width = 0;
         }
-        public int Weight
+        public Rectangle(int length , int width)
         {
-            set
-            {
-                weight = value;
-            }
-            get
-            {
-                return weight;
-            }
+            this.length = length;
+            this.width = width;
         }
-        public void Introduce()
+        public Rectangle(int area)
         {
-            Console.WriteLine("我叫{0}，我的体重是{1}kg.", name, weight);
+            this.area = area;
+        }
+        public bool IsSquare()
+        {
+            if (length == width)
+                return true;
+            return false;
+        }
+        public int CalcCircumfer()
+        {
+            return length * 2 + width * 2;
+        }
+        public int CalcArea()
+        {
+            return length * width;
+        }
+        public int SquArea()
+        {
+            int line = Convert.ToInt32(Math.Sqrt(area));
+            while(1==1)
+            {
+                if (area / line * line == area)
+                    break;
+                --line;
+            }
+            return line;
         }
     }
+
 }
