@@ -10,9 +10,10 @@ namespace PracticeForCsharp_Console
     {
         static void Main(string[] args)
         {
-            Rectangle rectangle = new Rectangle(30);
-            int line = rectangle.SquArea();
-            Console.WriteLine("面积为30的矩形最近分解为{0}和{1}",line,30/line);
+            Rectangle rectangle = new Rectangle(21,32);
+            Console.WriteLine("面积为"+rectangle.CalcArea());
+            Console.WriteLine("周长为"+rectangle.CalcCircumfer()); 
+            
             
         }
     }
@@ -32,9 +33,17 @@ namespace PracticeForCsharp_Console
             this.length = length;
             this.width = width;
         }
+        public int line = 0;
         public Rectangle(int area)
         {
             this.area = area;
+            line = Convert.ToInt32(Math.Sqrt(area));
+            while (1 == 1)
+            {
+                if (area / line * line == area)
+                    break;
+                --line;
+            }
         }
         public bool IsSquare()
         {
@@ -49,17 +58,6 @@ namespace PracticeForCsharp_Console
         public int CalcArea()
         {
             return length * width;
-        }
-        public int SquArea()
-        {
-            int line = Convert.ToInt32(Math.Sqrt(area));
-            while(1==1)
-            {
-                if (area / line * line == area)
-                    break;
-                --line;
-            }
-            return line;
         }
     }
 
